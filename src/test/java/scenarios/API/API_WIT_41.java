@@ -1,23 +1,23 @@
 package scenarios.API;
 
-import io.restassured.http.Cookie;
 import io.restassured.http.Cookies;
-import netscape.javascript.JSObject;
 import org.json.simple.JSONObject;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.concurrent.TimeUnit;
-
 import static Methods.Methods.*;
+import static Methods.Methods.log;
 import static org.junit.Assert.assertEquals;
+
 /*
-   Scenariusz WIT_36 - API - Pobranie listy użytkowników
+   Scenariusz WIT_41 - API - Pobranie listy komentarzy
 
 */
 
-public class API_WIT_36 {
+
+
+public class API_WIT_41 {
 
     static JSONObject json;
     static Cookies cookie;
@@ -26,7 +26,7 @@ public class API_WIT_36 {
 
     @BeforeClass
     public static void Setup() throws InterruptedException {
-        log.info("### Scenariusz Aplikacja_WIT_36 - API - Pobranie listy użytkowników");
+        log.info("### Scenariusz Aplikacja_WIT_41 - API - Pobranie listy komentarzy");
     }
 
 
@@ -40,8 +40,8 @@ public class API_WIT_36 {
         }catch (Exception e)
         {
             log.warn("Nieudane zalogowanie przez API");
-        flag = false;
-        AssertFlag =false;
+            flag = false;
+            AssertFlag =false;
         }
         assertEquals(true, flag);
     }
@@ -51,11 +51,11 @@ public class API_WIT_36 {
     {
         flag = true;
         try{
-            Get_List(cookie, "users");
-            log.info("Udane pobranie listy użytkowników");
+            Get_List(cookie, "comments");
+            log.info("Udane pobranie listy komentarzy");
         }catch (Exception e)
         {
-            log.warn("Nieudane pobranie listy użytkowników");
+            log.warn("Nieudane pobranie listy komentarzy");
             flag = false;
             AssertFlag =false;
         }
@@ -65,9 +65,8 @@ public class API_WIT_36 {
     @AfterClass
     public static void Close() {
         if (AssertFlag)
-            log.info("### Scenariusz Aplikacja_WIT_36 ukończony pomyślnie ");
+            log.info("### Scenariusz Aplikacja_WIT_41 ukończony pomyślnie ");
         else
-            log.warn("### Scenariusz Aplikacja_WIT_36 ukończony niepomyślnie ");
+            log.warn("### Scenariusz Aplikacja_WIT_41 ukończony niepomyślnie ");
     }
-
 }
